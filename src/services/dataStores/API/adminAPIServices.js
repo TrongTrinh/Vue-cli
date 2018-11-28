@@ -12,31 +12,31 @@ const getAdminDetail = ({ id }) => (
   api.get(`/admin/${id}`)
 )
 
-const addManagement = ({ first_name, last_name, email, phone, password, avatar, shop_id, role, comment }) => (
+const addManagement = ({ firstName, lastName, email, phone, password, avatar, shopId, role, comment }) => (
   api.post(`/admin/add`, {
-    first_name,
-    last_name,
+    firstName,
+    lastName,
     email,
     phone,
     password,
     avatar,
-    shop_id,
+    shopId,
     role,
     comment
   })
 )
 
-const updateAdmin = ({ id, first_name, last_name, email, phone, password, avatar, shop_id, role, comment, created_date, updated_date }) => (
+const updateAdmin = ({ id, firstName, lastName, email, phone, password, avatar, shopId, role, comment, createdDate, updatedDate }) => (
   api.put(`/admin/edit/${id}`, {
-    first_name,
-    last_name,
+    firstName,
+    lastName,
     email,
     phone,
     password,
     avatar,
-    shop_id,
-    created_date,
-    updated_date,
+    shopId,
+    createdDate,
+    updatedDate,
     role,
     comment
   })
@@ -48,18 +48,18 @@ const deleteAdmin = ({ id }) => (
   })
 )
 
-const editManagement = ({ id, first_name, last_name, email, phone, password, avatar, shop_id, role, comment, created_date, updated_date }) => (
+const editManagement = ({ id, firstName, lastName, email, phone, password, avatar, shopId, role, comment, createdDate, updatedDate }) => (
   api.put(`/admin/edit/${id}`, {
     admin: {
-      first_name,
-      last_name,
+      firstName,
+      lastName,
       email,
       phone,
       password,
       avatar,
-      shop_id,
-      created_date,
-      updated_date,
+      shopId,
+      createdDate,
+      updatedDate,
       role,
       comment
     }

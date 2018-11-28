@@ -1,11 +1,11 @@
 import api from './service'
 
-const userLoginPost = ({ username, password, flag_login }) => (
+const userLoginPost = ({ username, password, flagLogin }) => (
   api.post(`/admin/login`,
     {
       username,
       password,
-      flag_login
+      flagLogin
     }
   )
 )
@@ -14,25 +14,25 @@ const userLogoutPost = () => (
   api.post(`/logout`)
 )
 
-const editProfile = ({ id, first_name, last_name, email, phone, avatar, shop_id, role, comment, created_date, updated_date }) => (
+const editProfile = ({ id, firstName, lastName, email, phone, avatar, shopId, role, comment, createdDate, updatedDate }) => (
   api.put(`/admin/edit/${id}`, {
-    first_name,
-    last_name,
+    firstName,
+    lastName,
     email,
     phone,
     avatar,
-    shop_id,
-    created_date,
-    updated_date,
+    shopId,
+    createdDate,
+    updatedDate,
     role,
     comment
   })
 )
 
-const changePwdProfile = ({ id, password, updated_date }) => (
+const changePwdProfile = ({ id, password, updatedDate }) => (
   api.put(`/admin/edit/${id}`, {
     password,
-    updated_date
+    updatedDate
   })
 )
 

@@ -7,53 +7,52 @@ export const state = () => ({
   user: null
 })
 
-// getters
-const getters = {
-  cartProducts: (state, getters, rootState) => {
-    return state.items.map(({ id, quantity }) => {
-      const product = rootState.products.all.find(product => product.id === id)
-      return {
-        title: product.title,
-        price: product.price,
-        quantity
-      }
-    })
+// --------------- reducers --------------- //
+export const mutations = {
+  loginRequest (state, payload) {
+    // set state to store
+  },
+
+  loginSuccess (state, { payload }) {
+    const { user, token, isLogin } = payload
+    services.setHeaders({ token })
+    // set token, user to localStorage
+    state.token = token
+    state.user = user
+    state.isLogin = isLogin
+  },
+
+  logout (state) {
+    // write code here
   }
 }
 
-// actions
-const actions = {
-  checkout ({ commit, state }, products) {
-    const savedCartItems = [...state.items]
-    commit('setCheckoutStatus', null)
-    // empty cart
-    commit('setCartItems', { items: [] })
-    shop.buyProducts(
-      products,
-      () => commit('setCheckoutStatus', 'successful'),
-      () => {
-        commit('setCheckoutStatus', 'failed')
-        // rollback to the cart saved before sending the request
-        commit('setCartItems', { items: savedCartItems })
-      }
-    )
+// --------------- Actions & Hook --------------- //
+export const actions = {
+  LOGIN_REQUEST ({ commit }, payload) {
+    // commit mutations
+    commit('loginRequest', payload)
+  },
+
+  LOGIN_SUCCESS ({ commit }, payload) {
+    // commit mutations
+    commit('loginSuccess', payload)
+  },
+
+  LOGOUT ({ commit }) {
+    // commit mutations
+    commit('logout')
   }
 }
 
-// mutations
-const mutations = {
-  pushProductToCart (state, { id }) {
-    state.items.push({
-      id,
-      quantity: 1
-    })
-  }
+export const getters = {
+  appLogin: (state) => state.isLogin
 }
 
+// --------------- export default --------------- //
 export default {
-  namespaced: true,
-  state,
-  getters,
   actions,
-  mutations
+  getters,
+  mutations,
+  state
 }

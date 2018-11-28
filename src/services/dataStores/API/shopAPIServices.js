@@ -1,28 +1,28 @@
 import api from './service'
 
-const getShopsList = ({ deleted, pageNo, PerPage, search, lang_code }) => (
+const getShopsList = ({ deleted, pageNo, PerPage, search, langCode }) => (
   api.get(`/shops`, {
     deleted,
     pageNo,
     search,
-    lang_code,
+    langCode,
     PerPage
   })
 )
-const addShop = ({ name, description, address, email, phone, category_id, close_time, open_time, avatar, latitude, longitude, post_code }) => (
+const addShop = ({ name, description, address, email, phone, categoryId, closeTime, openTime, avatar, latitude, longitude, postCode }) => (
   api.post(`/shop/add`, {
     name,
     description,
     address,
     email,
     phone,
-    category_id,
-    close_time,
-    open_time,
+    categoryId,
+    closeTime,
+    openTime,
     avatar,
     latitude,
     longitude,
-    post_code
+    postCode
   })
 )
 const deleteShop = ({ id }) => (
@@ -30,25 +30,25 @@ const deleteShop = ({ id }) => (
     id
   })
 )
-const getShopDetail = ({ id, lang_code }) => (
-  api.get(`/shop/${id}?lang_code=${lang_code}`)
+const getShopDetail = ({ id, langCode }) => (
+  api.get(`/shop/${id}?lang_code=${langCode}`)
 )
 
-const editShop = ({ id, name, description, address, email, phone, category_id, close_time, open_time, avatar, latitude, longitude, post_code, lang_code }) => (
-  api.put(`/shop/edit?lang_code=${lang_code}`, {
+const editShop = ({ id, name, description, address, email, phone, categoryId, closeTime, openTime, avatar, latitude, longitude, postCode, langCode }) => (
+  api.put(`/shop/edit?lang_code=${langCode}`, {
     id,
     name,
     description,
     address,
     email,
     phone,
-    category_id,
-    close_time,
-    open_time,
+    categoryId,
+    closeTime,
+    openTime,
     avatar,
     latitude,
     longitude,
-    post_code
+    postCode
   })
 )
 

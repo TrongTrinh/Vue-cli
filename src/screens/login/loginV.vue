@@ -1,6 +1,5 @@
 <script src='./loginVM.js'></script>
 <style src='./login.sass' lang="sass">
-  
 </style>
 <template>
   <div
@@ -19,12 +18,12 @@
           tag="label"
           class="d-block"
         >
-          <span>Name *</span>
+          <span>User Name *</span>
           <input
-            v-model="model.name"
+            v-model="model.username"
             required
-            name="name"
-            placeholder="Name"
+            name="username"
+            placeholder="User Name"
           />
 
         </validate>
@@ -33,12 +32,12 @@
           tag="label"
           class="d-block"
         >
-          <span>Email</span>
+          <span>Password</span>
           <input
-            v-model="model.email"
-            name="email"
-            type="email"
-            placeholder="Email"
+            v-model="model.password"
+            name="password"
+            type="text"
+            placeholder="Password"
             required
           />
 
