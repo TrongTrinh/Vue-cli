@@ -1,11 +1,11 @@
 import api from './service'
 
-const userLoginPost = ({ username, password, flagLogin }) => (
+const userLoginPost = ({ username, password }) => (
   api.post(`/admin/login`,
     {
       username,
       password,
-      flagLogin
+      flag_login: 'admin'
     }
   )
 )

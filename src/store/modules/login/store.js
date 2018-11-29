@@ -1,5 +1,5 @@
 import services from '@/services/DataStore'
-
+// const stateKey = 'user'
 // --------------- Initial State --------------- //
 export const state = () => ({
   isLogin: false,

@@ -6,7 +6,6 @@ function * loginRequest ({ payload }) {
   const { onShowError } = payload
   try {
     const { username, password } = payload
-
     if (username === '' && password === '') {
       throw new Error('Username & Password are required!')
     } else if (username === '') {
@@ -16,10 +15,8 @@ function * loginRequest ({ payload }) {
     } else {
       const { data } = yield apiFetchAsync(() => services.userLoginPost({
         username,
-        password,
-        flagLogin: 'admin'
+        password
       }))
-      console.log(data)
       if (data.code === 200) {
         const { token, user } = data.result
 

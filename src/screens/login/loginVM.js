@@ -9,8 +9,8 @@ export default {
       formstate: {},
       message: '',
       model: {
-        username: '',
-        password: '',
+        username: 'admin@justnail.com',
+        password: 'bh@132',
         onShowError: function (error) {
           alert(error)
         }
@@ -24,8 +24,8 @@ export default {
   },
   methods: {
     onSubmit: function () {
+      store.dispatch('LOGIN_REQUEST', this.model)
       if (this.formstate.$valid) {
-        store.dispatch('LOGIN_REQUEST', this.model)
         this.formstate._reset()
       }
     }
@@ -33,7 +33,7 @@ export default {
   watch: {
     // watcher appLogin value change
     appLogin: function (newValue, oldValue) {
-      router.push('/dashboard')
+      router.push('/')
     }
   }
 }
