@@ -30,11 +30,6 @@ export default new Router({
       path: '/shops',
       name: 'shops',
       component: Shops
-      // children: [{
-      //   path: '/shop-details/:id',
-      //   name: 'shopDetails',
-      //   component: Contact
-      // }]
     },
     {
       path: '/shop-details/:id',

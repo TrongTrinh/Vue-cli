@@ -29,11 +29,21 @@ export default {
       return shopsConfigAvatar
     }
   },
+  methods: {
+    onGetListShops () {
+      const { pageNo, search } = this
+      store.dispatch('GET_SHOP_LISTS_REQUEST', {
+        pageNo,
+        search
+      })
+    }
+  },
   created: function () {
-    const { pageNo, search } = this
-    store.dispatch('GET_SHOP_LISTS_REQUEST', {
-      pageNo,
-      search
-    })
+    this.onGetListShops()
+  },
+  watch: {
+    pageNo: function (newVal, oldVal) { // watch it
+      this.onGetListShops()
+    }
   }
 }

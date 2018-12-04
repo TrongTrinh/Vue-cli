@@ -13,10 +13,12 @@
       <div>
         <b-pagination
           size="md"
-          :total-rows="100"
-          :per-page="10"
+          :total-rows="shoplists.totalResult"
+          :per-page="shoplists.totalPage"
+          v-model="pageNo"
         >
         </b-pagination>
+        {{pageNo}}
         <br>
       </div>
     </template>

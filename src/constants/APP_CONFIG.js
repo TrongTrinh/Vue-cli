@@ -3,6 +3,6 @@ export const APP_CONFIG = {
   SHOP: {
     deleted: false,
     lang_code: 'en',
-    PerPage: 9
+    PerPage: 3
   }
 }

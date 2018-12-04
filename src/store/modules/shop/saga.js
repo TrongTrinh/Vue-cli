@@ -10,7 +10,7 @@ function * getShopListsRequest ({payload}) {
       deleted: APP_CONFIG.SHOP.deleted,
       pageNo,
       search,
-      lang_code: APP_CONFIG.SHOP.lang_code,
+      langCode: APP_CONFIG.SHOP.lang_code,
       PerPage: APP_CONFIG.SHOP.PerPage
     }))
     if (data.code === 200) {
@@ -24,6 +24,25 @@ function * getShopListsRequest ({payload}) {
   }
 }
 
+function * getShopDetailRequest ({payload}) {
+  try {
+    const {id} = payload
+    const { data } = yield apiFetchAsync(() => services.getShopDetail({
+      id,
+      langCode: APP_CONFIG.SHOP.lang_code
+    }))
+    if (data.code === 200) {
+      yield put({
+        type: 'getShopDetailSucces',
+        payload: data.result
+      })
+    }
+  } catch (e) {
+
+  }
+}
+
 export default [
-  takeLatest('getShopListsRequest', getShopListsRequest)
+  takeLatest('getShopListsRequest', getShopListsRequest),
+  takeLatest('getShopDetailRequest', getShopDetailRequest)
 ]

@@ -33,14 +33,13 @@ function * loginRequest ({ payload }) {
 
 function * logout () {
   try {
-    const { data } = yield apiFetchAsync(() => services.userLogoutPost())
-
-    if (data.code === 200) {
-      yield put({
-        type: 'loginSuccess',
-        payload: { token: null, user: null, isLogin: false }
-      })
-    }
+    // const { data } = yield apiFetchAsync(() => services.userLogoutPost())
+    // if (data.code === 200) {
+    yield put({
+      type: 'loginSuccess',
+      payload: { token: null, user: null, isLogin: false }
+    })
+    // }
   } catch (error) {
     console.log('>>>>>errrr')
   }

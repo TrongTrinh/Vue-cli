@@ -15,6 +15,11 @@ export const mutations = {
   },
   getShopListSuccess (state, { payload }) {
     state.shopLists = payload
+  },
+  getShopDetailRequest (state, { payload }) {
+  },
+  getShopDetailSucces (state, { payload }) {
+    state.shopDetail = payload
   }
 
 }
@@ -23,11 +28,15 @@ export const mutations = {
 export const actions = {
   GET_SHOP_LISTS_REQUEST ({commit}, payload) {
     commit('getShopListsRequest', payload)
+  },
+  GET_SHOP_DETAIL_REQUEST ({commit}, payload) {
+    commit('getShopDetailRequest', payload)
   }
 }
 
 export const getters = {
-  shoplists: (state) => state.shopLists
+  shoplists: (state) => state.shopLists,
+  shopDetail: (state) => state.shopDetail
 }
 
 // --------------- export default --------------- //
