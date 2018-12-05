@@ -2,9 +2,10 @@
 
 <template>
   <div id="shop-details">
+  <p>fffmnffn</p>
     <div class="container">
       <h3 class="my-5">{{getShopDetail.name}}</h3>
-      <p><img :src= getShopDetail.avatar alt="avatar"></p>
+      <p><img class='w-100 h-auto' :src= getShopDetail.avatar alt="avatar"></p>
       <p>address: {{getShopDetail.address}}</p>
       <p>email: {{getShopDetail.email}}</p>
       <p>phone: {{getShopDetail.phone}}</p>

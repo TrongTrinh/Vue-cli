@@ -3,7 +3,10 @@
 
 <template>
   <div class="container">
-    <h3 class="my-5  text-uppercase text-center">List products</h3>
+    <h3 class="my-5  text-uppercase text-center">List products 
+    <router-link :to="{ path: `/shop/add`}">Add shop</router-link>
+      
+    </h3>
     <div class="row">
       <div class="col-md-4 mb-5" v-for="shop in renderShops" :key="shop.id">
         <ShopItem :shop="shop" />
@@ -18,7 +21,6 @@
           v-model="pageNo"
         >
         </b-pagination>
-        {{pageNo}}
         <br>
       </div>
     </template>

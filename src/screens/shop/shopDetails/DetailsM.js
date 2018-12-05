@@ -18,10 +18,16 @@ export default {
       return shop
     }
   },
+  methods: {
+    onGetShopDetail: function () {
+      const id = this.$route.params.id
+      console.log(id)
+      store.dispatch('GET_SHOP_DETAIL_REQUEST',
+        {id}
+      )
+    }
+  },
   created: function () {
-    const id = this.$route.params.id
-    store.dispatch('GET_SHOP_DETAIL_REQUEST',
-      {id}
-    )
+    this.onGetShopDetail()
   }
 }
