@@ -1,0 +1,6 @@
+export { default as Contact } from './contact'
+export { default as Login } from './login/loginV'
+export { default as ShopDetails } from './shop/shopDetails/Details'
+export { default as Shops } from './shop/shopLists/ShopLists'
+export { default as ShopV } from './shop/Shop'
+export { default as Form } from './shop/shopAdd/Add'

@@ -2,6 +2,7 @@
 <style src='./styles.sass' lang='sass'></style>
 <template>
   <div id="shop-item">
+
     <div class="avatar">
       <img
         :src="shop.avatar"
@@ -12,6 +13,6 @@
       <h5 class="title my-2">{{ shop.name }} </h5>
       <p class="des">{{shop.description}}</p>
     </div>
-    <router-link :to="{ name: 'shopDetails', params: { shopId: shop.id }}">View Detail</router-link>
+    <router-link :to="{ path: `/shop-details/${shop.id}`, params: { id: shop.id }}">View Detail</router-link>
   </div>
 </template>

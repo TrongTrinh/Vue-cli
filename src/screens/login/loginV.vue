@@ -5,8 +5,7 @@
   <div
     id="loginForm"
     class="d-flex flex-column align-items-center"
-  > 
-  {{appLogin}}
+  >
     <div class="wrap" v-if="!appLogin">
       <h3>Login</h3>
       <vue-form

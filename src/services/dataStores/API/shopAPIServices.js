@@ -17,12 +17,12 @@ const addShop = ({ name, description, address, email, phone, categoryId, closeTi
     email,
     phone,
     categoryId,
-    closeTime,
-    openTime,
+    close_time: closeTime,
+    open_time: openTime,
     avatar,
     latitude,
     longitude,
-    postCode
+    post_code: postCode
   })
 )
 const deleteShop = ({ id }) => (

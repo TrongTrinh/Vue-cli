@@ -1,10 +1,6 @@
-import Contact from '@/screens/contact'
+import { Contact, Form, Login, ShopDetails, ShopV, Shops } from '@/screens'
 import HelloWorld from '@/components/HelloWorld'
-import Login from '@/screens/login/loginV'
 import Router from 'vue-router'
-import Shops from '@/screens/shop/ShopLists'
-import ShopDetails from '@/screens/shop/shopDetails/Details'
-
 import Vue from 'vue'
 
 Vue.use(Router)
@@ -27,14 +23,26 @@ export default new Router({
       component: Contact
     },
     {
-      path: '/shops',
-      name: 'shops',
-      component: Shops
-    },
-    {
-      path: '/shopDetails/:shopId',
-      name: 'shopDetails',
-      component: ShopDetails
+      path: '/',
+      name: 'shop',
+      component: ShopV,
+      children: [
+        {
+          path: 'shop-lists',
+          name: 'shops',
+          component: Shops
+        },
+        {
+          path: 'shop-details/:id',
+          name: 'shopDetails',
+          component: ShopDetails
+        },
+        {
+          path: 'shop-add',
+          name: 'shopForm',
+          component: Form
+        }
+      ]
     }
   ]
 })

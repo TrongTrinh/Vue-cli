@@ -20,6 +20,9 @@ export const mutations = {
   },
   getShopDetailSucces (state, { payload }) {
     state.shopDetail = payload
+  },
+  saveShopRequest (state, {payload}) {
+
   }
 
 }
@@ -31,6 +34,9 @@ export const actions = {
   },
   GET_SHOP_DETAIL_REQUEST ({commit}, payload) {
     commit('getShopDetailRequest', payload)
+  },
+  SAVE_SHOP_REQUEST ({commit}, payload) {
+    commit('saveShopRequest', payload)
   }
 }
 

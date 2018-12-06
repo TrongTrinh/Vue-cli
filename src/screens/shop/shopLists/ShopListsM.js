@@ -1,13 +1,14 @@
 import store from '@/store'
 import { mapGetters } from 'vuex'
-import { API_CONFIG } from '@/constants'
-import ShopItem from './shopItem/ShopItem.vue'
+import { API_CONFIG, APP_CONFIG } from '@/constants'
+import ShopItem from '../shopItem/ShopItem.vue'
 export default {
   name: 'shopLists',
   data: function () {
     return {
       pageNo: 1,
-      search: ''
+      search: '',
+      perPage: APP_CONFIG.SHOP.PerPage
     }
   },
   components: {

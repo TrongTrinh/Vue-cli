@@ -8,7 +8,6 @@ export default {
       'shopDetail'
     ]),
     getShopDetail: function () {
-      console.log(this)
       let {shop} = this.shopDetail
       const avatar = `${API_CONFIG.IMAGE_PATH}/${shop.avatar}`
       shop = {

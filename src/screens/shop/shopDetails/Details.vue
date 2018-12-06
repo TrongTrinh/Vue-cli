@@ -2,7 +2,6 @@
 
 <template>
   <div id="shop-details">
-  <p>fffmnffn</p>
     <div class="container">
       <h3 class="my-5">{{getShopDetail.name}}</h3>
       <p><img class='w-100 h-auto' :src= getShopDetail.avatar alt="avatar"></p>
