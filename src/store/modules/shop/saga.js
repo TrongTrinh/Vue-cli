@@ -14,7 +14,6 @@ function * getShopListsRequest ({payload}) {
       PerPage: APP_CONFIG.SHOP.PerPage
     }))
     if (data.code === 200) {
-      console.log(data.result)
       yield put({
         type: 'getShopListSuccess',
         payload: data.result
@@ -45,7 +44,6 @@ function * getShopDetailRequest ({payload}) {
 
 function * saveShopRequest ({payload}) {
   try {
-    console.log(payload.formData)
     const {formData} = payload
     const { name, description, address, email, phone, categoryId, closeTime, openTime, avatar, latitude, longitude, postCode } = formData
     const { data } = yield apiFetchCall(() => services.addShop({
@@ -62,15 +60,26 @@ function * saveShopRequest ({payload}) {
       longitude,
       postCode
     }))
-    console.log(data)
   } catch (e) {
     // yield put(ShopRedux.Creators.requestFailure(e))
-    console.log('dad')
   }
 }
 
+function * deleteOneShopRequest ({payload}) {
+  try {
+    const {shopId} = payload
+    console.log(shopId)
+    const { data } = yield apiFetchCall(() => services.deleteShop({
+      shopId
+    }))
+    console.log(data)
+  } catch (error) {
+
+  }
+}
 export default [
   takeLatest('getShopListsRequest', getShopListsRequest),
   takeLatest('getShopDetailRequest', getShopDetailRequest),
-  takeLatest('saveShopRequest', saveShopRequest)
+  takeLatest('saveShopRequest', saveShopRequest),
+  takeLatest('deleteOneShopRequest', deleteOneShopRequest)
 ]

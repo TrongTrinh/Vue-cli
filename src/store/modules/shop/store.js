@@ -22,6 +22,8 @@ export const mutations = {
     state.shopDetail = payload
   },
   saveShopRequest (state, {payload}) {
+  },
+  deleteOneShopRequest (state, {payload}) {
 
   }
 
@@ -37,6 +39,9 @@ export const actions = {
   },
   SAVE_SHOP_REQUEST ({commit}, payload) {
     commit('saveShopRequest', payload)
+  },
+  DELETE_ONE_SHOP_REQUEST ({commit}, payload) {
+    commit('deleteOneShopRequest', payload)
   }
 }
 

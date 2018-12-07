@@ -1,4 +1,5 @@
 import store from '@/store'
+import {Dialog} from '@/components'
 import { mapGetters } from 'vuex'
 import { API_CONFIG, APP_CONFIG } from '@/constants'
 import ShopItem from '../shopItem/ShopItem.vue'
@@ -8,11 +9,14 @@ export default {
     return {
       pageNo: 1,
       search: '',
-      perPage: APP_CONFIG.SHOP.PerPage
+      perPage: APP_CONFIG.SHOP.PerPage,
+      showModal: false,
+      shopId: null
     }
   },
   components: {
-    ShopItem
+    ShopItem,
+    Dialog
   },
   computed: {
     ...mapGetters([
@@ -36,6 +40,17 @@ export default {
       store.dispatch('GET_SHOP_LISTS_REQUEST', {
         pageNo,
         search
+      })
+    },
+    onToggleshowModal (id) {
+      this.showModal = !this.showModal
+      this.shopId = id || null
+    },
+    onDelete () {
+      const {shopId} = this
+      this.onToggleshowModal()
+      store.dispatch('DELETE_ONE_SHOP_REQUEST', {
+        shopId
       })
     }
   },

@@ -1,4 +1,5 @@
-import router from 'vue-router'
+
+
 export default {
   name: 'ShopForm',
   data: function () {

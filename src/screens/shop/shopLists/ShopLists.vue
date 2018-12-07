@@ -8,14 +8,11 @@
     </h3>
     <div class="row">
       <div class="col-md-4 mb-5" v-for="shop in renderShops" :key="shop.id">
-        <ShopItem :shop="shop" />
+        <ShopItem :shop="shop" @onToggleshowModal='onToggleshowModal' />
       </div>
     </div>
     <template>
-      <div>
-        {{shoplists.totalResult}}
-        {{ shoplists.totalPage}}
-        {{ perPage}}
+      <div>        
         <b-pagination
           size="md"
           :total-rows="shoplists.totalResult"
@@ -26,5 +23,6 @@
         <br>
       </div>
     </template>
+    <Dialog v-if='showModal' @close="onToggleshowModal" @save='onDelete' />
   </div>
 </template>

@@ -20,7 +20,6 @@ export default {
   methods: {
     onGetShopDetail: function () {
       const id = this.$route.params.id
-      console.log(id)
       store.dispatch('GET_SHOP_DETAIL_REQUEST',
         {id}
       )

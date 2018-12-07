@@ -13,6 +13,7 @@
       <h5 class="title my-2">{{ shop.name }} </h5>
       <p class="des">{{shop.description}}</p>
     </div>
+    <button @click="onToggleshowModal">Delele</button>
     <router-link :to="{ path: `/shop-details/${shop.id}`, params: { id: shop.id }}">View Detail</router-link>
   </div>
 </template>
